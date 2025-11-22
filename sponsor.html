@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sponsor Kami | Donasi Ramadan</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0096c7, #48cae4);
+      color: #023047;
+    }
+
+    /* NAVBAR */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    header .logo {
+      font-size: 20px;
+      font-weight: 700;
+      color: white;
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      font-weight: 500;
+      text-decoration: none;
+    }
+    nav a:hover, nav .active {
+      color: #caf0f8;
+      border-bottom: 2px solid #caf0f8;
+      padding-bottom: 2px;
+    }
+
+    /* CONTENT */
+    .content {
+      padding: 60px 80px;
+      color: white;
+      text-align: center;
+    }
+    .content h1 {
+      font-size: 2.4em;
+      margin-bottom: 10px;
+    }
+    .content p {
+      max-width: 700px;
+      margin: 0 auto 40px;
+      color: #e3f2fd;
+    }
+
+    /* SEARCH & FILTER */
+    .tools {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+    .tools input {
+      padding: 12px 18px;
+      width: 260px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+    }
+    .filter-btn {
+      background: white;
+      padding: 12px 20px;
+      border-radius: 10px;
+      color: #0077b6;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .filter-btn:hover {
+      background: #caf0f8;
+      color: #023e8a;
+    }
+
+    /* SPONSOR CARD */
+    .sponsors {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    .card {
+      background: rgba(255,255,255,0.15);
+      width: 260px;
+      padding: 25px;
+      border-radius: 15px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      transition: 0.3s;
+      cursor: pointer;
+      animation: fadeIn 1s ease forwards;
+    }
+    .card:hover {
+      transform: translateY(-7px);
+      background: rgba(255,255,255,0.3);
+    }
+    .card img {
+      width: 95px;
+      height: 95px;
+      object-fit: contain;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.35);
+      padding: 10px;
+      margin-bottom: 15px;
+    }
+    .card h3 {
+      margin-bottom: 5px;
+      color: white;
+    }
+    .card p {
+      color: #e3f2fd;
+      font-size: 0.95em;
+    }
+
+    /* POPUP */
+    .popup {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+    .popup-content {
+      background: white;
+      width: 350px;
+      padding: 25px;
+      border-radius: 15px;
+      text-align: center;
+      animation: fadeIn 0.4s;
+    }
+    .popup-content h2 {
+      color: #0077b6;
+      margin-bottom: 10px;
+    }
+    .popup-content p {
+      color: #444;
+    }
+    .close-btn {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #0077b6;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+    }
+
+    /* ANIMATION */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* NAV BUTTONS */
+    .nav-buttons {
+      margin-top: 40px;
+    }
+    .back-btn {
+      background: white;
+      padding: 12px 28px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: #0077b6;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      margin: 0 10px;
+    }
+    .back-btn:hover {
+      background: #caf0f8;
+      color: #023e8a;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      margin-top: 50px;
+      color: white;
+      background: rgba(255,255,255,0.1);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <div class="logo">Donasi Ramadan</div>
+    <nav>
+      <a href="index.html">Beranda</a>
+      <a href="program.html">Program Kami</a>
+      <a href="sponsor.html" class="active">Sponsor</a>
+      <a href="opendon.html">Ayo Berdonasi</a>
+    </nav>
+  </header>
+
+  <!-- CONTENT -->
+  <section class="content">
+    <h1>🤝 Sponsor & Mitra Resmi</h1>
+    <p>Terima kasih kepada sponsor yang berkontribusi dalam program kebaikan Ramadan.</p>
+
+    <!-- SEARCH & FILTER -->
+    <div class="tools">
+      <input type="text" id="search" placeholder="Cari sponsor..." onkeyup="searchSponsor()">
+
+      <button class="filter-btn" onclick="filterSponsor('all')">Semua</button>
+      <button class="filter-btn" onclick="filterSponsor('zakat')">Lembaga Zakat</button>
+      <button class="filter-btn" onclick="filterSponsor('ngo')">NGO</button>
+    </div>
+
+    <!-- SPONSOR LIST -->
+    <div class="sponsors">
+
+      <div class="card" data-category="ngo" onclick="showPopup('Dompet Dhuafa','Mitra penyaluran donasi dan bantuan sosial.')">
+        <img src="img/logo duafa.jpg">
+        <h3>Dompet Dhuafa</h3>
+        <p>Mitra penyaluran donasi.</p>
+      </div>
+
+      <div class="card" data-category="zakat" onclick="showPopup('BAZNAS','Pengelola zakat, infak, dan sedekah resmi negara.')">
+        <img src="img/Baznas.png">
+        <h3>BAZNAS</h3>
+        <p>Pengelola ZIS resmi.</p>
+      </div>
+
+      <div class="card" data-category="ngo" onclick="showPopup('ACT','Lembaga kemanusiaan berskala internasional.')">
+        <img src="img/ACT.jpg">
+        <h3>ACT</h3>
+        <p>Kemanusiaan & pemberdayaan.</p>
+      </div>
+
+      <div class="card" data-category="zakat" onclick="showPopup('Rumah Zakat','Mendukung program pemberdayaan & Ramadan.')">
+        <img src="img/rumahzakat.jpg">
+        <h3>Rumah Zakat</h3>
+        <p>Pemberdayaan umat.</p>
+      </div>
+
+    </div>
+
+    <!-- BACK BUTTONS -->
+    <div class="nav-buttons">
+      <a class="back-btn" href="program.html">← Kembali</a>
+      <a class="back-btn" href="opendon.html">Lanjut Donasi →</a>
+    </div>
+  </section>
+
+  <!-- POPUP -->
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <h2 id="popup-title"></h2>
+      <p id="popup-text"></p>
+      <button class="close-btn" onclick="closePopup()">Tutup</button>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    function showPopup(title, text) {
+      document.getElementById('popup-title').innerText = title;
+      document.getElementById('popup-text').innerText = text;
+      document.getElementById('popup').style.display = "flex";
+    }
+    function closePopup() {
+      document.getElementById('popup').style.display = "none";
+    }
+
+    function filterSponsor(category) {
+      const cards = document.querySelectorAll('.card');
+
+      cards.forEach(card => {
+        if (category === "all" || card.dataset.category === category) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+
+    function searchSponsor() {
+      const search = document.getElementById('search').value.toLowerCase();
+      const cards = document.querySelectorAll('.card');
+
+      cards.forEach(card => {
+        const name = card.querySelector("h3").innerText.toLowerCase();
+        card.style.display = name.includes(search) ? "block" : "none";
+      });
+    }
+  </script>
+
+  <footer>© 2025 Donasi Ramadan | Semua Hak Dilindungi</footer>
+
+</body>
+</html>

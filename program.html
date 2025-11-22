@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program Kami | Donasi Ramadan</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0096c7, #48cae4);
+      color: white;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    /* ===================== PRELOADER ===================== */
+    #loader {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: #0096c7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .spinner {
+      width: 60px;
+      height: 60px;
+      border: 5px solid white;
+      border-top-color: transparent;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* ===================== HEADER (DISAMAKAN DENGAN SPONSOR) ===================== */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 700;
+      color: white;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 500;
+      transition: 0.3s;
+      font-size: 16px;
+    }
+
+    nav a:hover,
+    nav .active {
+      color: #caf0f8;
+      border-bottom: 2px solid #caf0f8;
+      padding-bottom: 2px;
+    }
+
+    /* ===================== CONTENT ===================== */
+    .content {
+      padding: 60px 100px;
+      color: white;
+    }
+
+    .content h1 {
+      font-size: 2.6em;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      text-align: center;
+      margin-top: -10px;
+      margin-bottom: 40px;
+      font-size: 14px;
+      color: #dff6ff;
+    }
+
+    /* ===================== KARTU PROGRAM ===================== */
+    .programs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.18);
+      border-radius: 15px;
+      padding: 25px;
+      width: 280px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+      transition: 0.4s;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+    }
+
+    .card img {
+      width: 90px;
+      height: 90px;
+      margin-bottom: 15px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.25);
+      padding: 10px;
+    }
+
+    /* ===================== MODAL DETAIL ===================== */
+    #detail-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(2px);
+      justify-content: center;
+      align-items: center;
+      animation: fadein 0.4s ease;
+      z-index: 9999;
+    }
+
+    @keyframes fadein {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    .modal-box {
+      width: 90%;
+      max-width: 700px;
+      background: white;
+      color: #014f86;
+      border-radius: 18px;
+      padding: 25px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+      animation: pop 0.4s ease;
+    }
+
+    @keyframes pop {
+      from {
+        transform: scale(0.85);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .modal-box img {
+      width: 220px;
+      border-radius: 12px;
+      margin: 10px;
+      transition: 0.3s;
+    }
+
+    .modal-box img:hover {
+      transform: scale(1.05);
+    }
+
+    .btn {
+      display: inline-block;
+      background: #0077b6;
+      padding: 12px 25px;
+      color: white;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      margin: 12px;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #00b4d8;
+    }
+
+    /* Sticky Donasi */
+    .sticky-donasi {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #fb8500;
+      padding: 15px 20px;
+      border-radius: 50px;
+      font-weight: 600;
+      color: white;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      z-index: 999;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      background: rgba(255, 255, 255, 0.15);
+      margin-top: 60px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========== PRELOADER =========== -->
+  <div id="loader">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">Donasi Ramadan</div>
+    <nav>
+      <a href="index.html">Beranda</a>
+      <a href="program.html" class="active">Program Kami</a>
+      <a href="sponsor.html">Sponsor</a>
+      <a href="opendon.html">Ayo Berdonasi</a>
+    </nav>
+  </header>
+
+  <!-- CONTENT -->
+  <section class="content">
+    <h1>🌙 Program Kami</h1>
+    <div class="breadcrumb">Setiap proyek dibuat dengan tujuan membantu lebih banyak orang. Memastikan donasi yang anda berikan tepat sasaran dan membawa manfaat nyata.</div>
+
+    <div class="programs">
+
+      <div class="card" onclick="openModal('pangan')">
+        <img src="img/food.png">
+        <h3>Bantuan Pangan</h3>
+        <p>Paket sembako & makanan berbuka.</p>
+      </div>
+
+      <div class="card" onclick="openModal('beasiswa')">
+        <img src="img/scholarship.png">
+        <h3>Beasiswa Anak Yatim</h3>
+        <p>Dukungan biaya sekolah.</p>
+      </div>
+
+      <div class="card" onclick="openModal('masjid')">
+        <img src="img/mosque.png">
+        <h3>Pembangunan Masjid</h3>
+        <p>Pembangunan & renovasi.</p>
+      </div>
+
+      <div class="card" onclick="openModal('lansia')">
+        <img src="img/elderly.png">
+        <h3>Santunan Lansia</h3>
+        <p>Bantuan & perhatian lansia.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- STICKY DONASI -->
+  <a href="opendon.html" class="sticky-donasi">💛 Ayo Donasi</a>
+
+  <!-- MODAL -->
+  <div id="detail-modal">
+    <div class="modal-box" id="modal-content"></div>
+  </div>
+
+  <footer>
+    © 2025 Donasi Ramadan | Semua hak dilindungi
+  </footer>
+
+  <script>
+    /* Preloader */
+    window.onload = function () {
+      setTimeout(() => document.getElementById("loader").style.display = "none", 800);
+    };
+
+    /* Modal Script */
+    function openModal(program) {
+      const modal = document.getElementById("detail-modal");
+      let content = "";
+
+      if (program === "pangan") {
+        content = `
+          <h2>🍱 Bantuan Pangan</h2>
+          <p>Dokumentasi kegiatan bantuan pangan selama Ramadan.</p>
+          <img src="img/kebaikan1.jpg">
+          <img src="img/kebaikan2.jpg">
+          <img src="img/kebaikan3.jpg">
+          <br>
+          <span class="btn" onclick="location.href='opendon.html'">Ayo Donasi</span>
+          <span class="btn" onclick="closeModal()">Kembali</span>
+        `;
+      }
+
+      if (program === "beasiswa") {
+        content = `
+          <h2>🎓 Beasiswa Anak Yatim</h2>
+          <p>Foto kegiatan penyaluran beasiswa.</p>
+          <img src="img/beasiswa1.jpg">
+          <img src="img/beasiswa2.jpg">
+          <img src="img/beasiswa3.jpg">
+          <br>
+          <span class="btn" onclick="location.href='opendon.html'">Ayo Donasi</span>
+          <span class="btn" onclick="closeModal()">Kembali</span>
+        `;
+      }
+
+      if (program === "masjid") {
+        content = `
+          <h2>🕌 Pembangunan Masjid</h2>
+          <p>Proses pembangunan & renovasi masjid.</p>
+          <img src="img/masjid1.jpg">
+          <img src="img/masjid2.jpg">
+          <img src="img/masjid3.jpg">
+          <br>
+          <span class="btn" onclick="location.href='opendon.html'">Ayo Donasi</span>
+          <span class="btn" onclick="closeModal()">Kembali</span>
+        `;
+      }
+
+      if (program === "lansia") {
+        content = `
+          <h2>👵 Santunan Lansia</h2>
+          <p>Dokumentasi kegiatan santunan lansia.</p>
+          <img src="img/lansia1.jpg">
+          <img src="img/lansia2.jpg">
+          <img src="img/lansia3.jpg">
+          <br>
+          <span class="btn" onclick="location.href='opendon.html'">Ayo Donasi</span>
+          <span class="btn" onclick="closeModal()">Kembali</span>
+        `;
+      }
+
+      document.getElementById("modal-content").innerHTML = content;
+      modal.style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("detail-modal").style.display = "none";
+    }
+  </script>
+
+</body>
+
+</html>

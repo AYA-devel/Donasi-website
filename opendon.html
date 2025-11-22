@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ayo Berdonasi | Donasi Ramadan</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0096c7, #48cae4);
+      color: #023047;
+    }
+
+    /* HEADER */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    header .logo {
+      font-size: 20px;
+      font-weight: 700;
+      color: white;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover, nav .active {
+      color: #caf0f8;
+      border-bottom: 2px solid #caf0f8;
+      padding-bottom: 2px;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+      color: white;
+    }
+
+    .content h1 {
+      font-size: 2.5em;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .content p {
+      font-size: 1.1em;
+      color: #e3f2fd;
+      text-align: center;
+      margin-bottom: 40px;
+      max-width: 600px;
+    }
+
+    /* FORM DONASI */
+    .donation-form {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      font-family: 'Poppins', sans-serif;
+      outline: none;
+    }
+
+    textarea {
+      resize: none;
+      height: 100px;
+    }
+
+    button {
+      background-color: white;
+      color: #0077b6;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      font-size: 1em;
+      transition: all 0.3s;
+    }
+
+    button:hover {
+      background-color: #caf0f8;
+    }
+
+    /* Tombol WA fixed */
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      padding: 15px;
+      border-radius: 50%;
+      font-size: 24px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      cursor: pointer;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: white;
+      font-size: 14px;
+      background: rgba(255,255,255,0.1);
+      margin-top: 60px;
+    }
+
+    @media(max-width: 768px) {
+      header {
+        flex-direction: column;
+        padding: 15px;
+      }
+      .content {
+        padding: 40px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Donasi Ramadan</div>
+    <nav>
+      <a href="index.html">Beranda</a>
+      <a href="program.html">Program Kami</a>
+      <a href="sponsor.html">Sponsor</a>
+      <a href="donasi.html" class="active">Ayo Berdonasi</a>
+    </nav>
+  </header>
+
+  <section class="content">
+    <h1>💙 Ayo Berdonasi</h1>
+    <p>Isi form di bawah ini untuk berdonasi dan berbagi kebahagiaan bersama sesama. Setiap kontribusi Anda sangat berarti!</p>
+
+    <form class="donation-form" id="donationForm">
+      <div class="form-group">
+        <label for="nama">Nama Lengkap</label>
+        <input type="text" id="nama" name="nama" placeholder="Masukkan nama Anda" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Alamat Email</label>
+        <input type="email" id="email" name="email" placeholder="Masukkan email Anda" required>
+      </div>
+
+      <div class="form-group">
+        <label for="nominal">Jumlah Donasi (Rp)</label>
+        <input type="number" id="nominal" name="nominal" placeholder="Contoh: 100000" required>
+      </div>
+
+      <div class="form-group">
+        <label for="metode">Metode Pembayaran</label>
+        <select id="metode" name="metode" required>
+          <option value="">-- Pilih Metode Pembayaran --</option>
+          <option value="Transfer Bank">Transfer Bank</option>
+          <option value="E-Wallet">E-Wallet (DANA, OVO, GoPay)</option>
+          <option value="QRIS">QRIS</option>
+          <option value="Tunai">Tunai di Lokasi</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="pesan">Pesan / Doa (Opsional)</label>
+        <textarea id="pesan" name="pesan" placeholder="Tulis pesan atau doa Anda..."></textarea>
+      </div>
+
+      <button type="submit">Kirim Donasi</button>
+    </form>
+  </section>
+
+  <!-- Tombol WhatsApp -->
+  <a href="https://wa.me/62895412993211" class="whatsapp-button" target="_blank">📲</a>
+
+  <footer>
+    © 2025 Donasi Ramadan | Semua hak dilindungi
+  </footer>
+
+  <!-- SCRIPT WA OTOMATIS -->
+  <script>
+    const form = document.getElementById('donationForm');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const nama = document.getElementById('nama').value;
+      const email = document.getElementById('email').value;
+      const nominal = document.getElementById('nominal').value;
+      const metode = document.getElementById('metode').value;
+      const pesan = document.getElementById('pesan').value;
+
+      const text = 
+`*Donasi Baru Masuk* 🎁🙏
+-------------------------
+👤 Nama: ${nama}
+📧 Email: ${email}
+💰 Nominal: Rp ${nominal}
+💳 Metode: ${metode}
+📝 Pesan/Doa: ${pesan ? pesan : "-"}
+-------------------------
+Mohon diproses ya 🙏`;
+
+      const encoded = encodeURIComponent(text);
+      const phone = "62895412993211";
+
+      window.location.href = `https://wa.me/${phone}?text=${encoded}`;
+
+      form.reset();
+    });
+  </script>
+
+</body>
+</html>
