@@ -45,7 +45,7 @@
       }
     }
 
-    /* ===================== HEADER (DISAMAKAN DENGAN SPONSOR) ===================== */
+    /* ===================== HEADER ===================== */
     header {
       display: flex;
       justify-content: space-between;
@@ -57,9 +57,18 @@
     }
 
     .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       font-size: 20px;
       font-weight: 700;
       color: white;
+    }
+
+    .logo-img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
     }
 
     nav a {
@@ -90,7 +99,6 @@
       margin-bottom: 10px;
     }
 
-    /* Breadcrumb */
     .breadcrumb {
       text-align: center;
       margin-top: -10px;
@@ -134,7 +142,31 @@
       padding: 10px;
     }
 
-    /* ===================== MODAL DETAIL ===================== */
+    /* ===================== TOMBOL NAVIGASI BAWAH ===================== */
+    .navigasi-bawah {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .nav-btn {
+      display: inline-block;
+      background: #ffffff;
+      padding: 12px 25px;
+      margin: 10px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #0077b6;
+      border: 2px solid #0077b6;
+      transition: 0.3s;
+    }
+
+    .nav-btn:hover {
+      background: #ffffff;
+      transform: translateY(-3px);
+    }
+
+    /* ===================== MODAL ===================== */
     #detail-modal {
       display: none;
       position: fixed;
@@ -211,7 +243,6 @@
       background: #00b4d8;
     }
 
-    /* Sticky Donasi */
     .sticky-donasi {
       position: fixed;
       bottom: 25px;
@@ -245,7 +276,10 @@
 
   <!-- HEADER -->
   <header>
-    <div class="logo">Donasi Ramadan</div>
+    <div class="logo">
+      <img src="img/logo.png" class="logo-img">
+      Donasi Ramadan
+    </div>
     <nav>
       <a href="index.html">Beranda</a>
       <a href="program.html" class="active">Program Kami</a>
@@ -286,6 +320,13 @@
       </div>
 
     </div>
+
+    <!-- TOMBOL NAVIGASI -->
+    <div class="navigasi-bawah">
+      <a href="index.html" class="nav-btn">⬅ Kembali</a>
+      <a href="sponsor.html" class="nav-btn">Selanjutnya ➡</a>
+    </div>
+
   </section>
 
   <!-- STICKY DONASI -->
@@ -301,12 +342,10 @@
   </footer>
 
   <script>
-    /* Preloader */
     window.onload = function () {
       setTimeout(() => document.getElementById("loader").style.display = "none", 800);
     };
 
-    /* Modal Script */
     function openModal(program) {
       const modal = document.getElementById("detail-modal");
       let content = "";
