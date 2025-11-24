@@ -196,21 +196,38 @@
       color: white;
       background: rgba(255,255,255,0.1);
     }
+    .logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
   </style>
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
-  <header>
+ <!-- NAVBAR -->
+<header>
+  <div class="logo-area">
+    <img src="img/logo.png" class="nav-logo">
     <div class="logo">Donasi Ramadan</div>
-    <nav>
-      <a href="index.html">Beranda</a>
-      <a href="program.html">Program Kami</a>
-      <a href="sponsor.html" class="active">Sponsor</a>
-      <a href="opendon.html">Ayo Berdonasi</a>
-    </nav>
-  </header>
+  </div>
+
+  <nav>
+    <a href="index.html">Beranda</a>
+    <a href="program.html">Program Kami</a>
+    <a href="sponsor.html" class="active">Sponsor</a>
+    <a href="opendon.html">Ayo Berdonasi</a>
+  </nav>
+</header>
+
 
   <!-- CONTENT -->
   <section class="content">
